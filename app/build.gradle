@@ -47,7 +47,6 @@ dependencies {
     implementation("org.koin:koin-androidx-scope:2.1.3")
 
     //Modules
-    implementation(project(":network"))
-    implementation(project(":storage"))
+    implementation(project(":core"))
 
 }

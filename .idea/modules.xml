@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PayDay.iml" filepath="$PROJECT_DIR$/.idea/modules/PayDay.iml" group="PayDay" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="PayDay/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core.iml" group="PayDay/core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/network/network.iml" filepath="$PROJECT_DIR$/.idea/modules/network/network.iml" group="PayDay/network" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/storage/storage.iml" filepath="$PROJECT_DIR$/.idea/modules/storage/storage.iml" group="PayDay/storage" />
     </modules>

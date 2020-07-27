@@ -1,14 +1,22 @@
 package bank.payday.network
 
+import bank.payday.network.models.accounts.NAccount
+import bank.payday.network.models.customer.NCustomerData
+import bank.payday.network.models.transactions.NTransaction
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.POST
 
 internal interface Api {
-//	@GET("/authenticate")
-//	suspend fun authenticate(
-//			@Body jsonData: HashMap<String, Any?>
-//	): BaseResponse<CharacterResponse>
+	@POST("/authenticate")
+	suspend fun authenticate(@Body jsonData: HashMap<String, Any?>): NCustomerData
 
+	@GET("/customers")
+	suspend fun loadCustomers(): List<NCustomerData>
+
+	@GET("/accounts")
+	suspend fun loadAccounts(): List<NAccount>
+
+	@GET("/transactions")
+	suspend fun loadTransactions(): List<NTransaction>
 }
