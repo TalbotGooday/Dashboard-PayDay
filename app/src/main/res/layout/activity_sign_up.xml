@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/title"
+			style="@style/Text.Title"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/title_view_height"
+			android:text="@string/register_title" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/first_name" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/first_name_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/first_name_hint"
+			android:imeOptions="actionNext"
+			android:inputType="textNoSuggestions" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/last_name" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/login_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/last_name_hint"
+			android:imeOptions="actionNext"
+			android:inputType="textNoSuggestions" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/phone_number" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/phone_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/phone_number_hint"
+			android:imeOptions="actionNext"
+			android:inputType="phone" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/email" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/email_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/email_hint"
+			android:imeOptions="actionNext"
+			android:inputType="textWebEmailAddress" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/password" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/password_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/create_password_hint"
+			android:imeOptions="actionNext"
+			android:inputType="textPassword" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/confirm_password" />
+
+		<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/confirm_password_input"
+			style="@style/Input.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:hint="@string/confirm_password_hint"
+			android:inputType="textPassword" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:imeOptions="actionNext"
+			android:text="@string/gender" />
+
+		<RadioGroup
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:layout_marginStart="@dimen/default_horizontal_margin"
+			android:layout_marginEnd="@dimen/default_horizontal_margin"
+			android:gravity="start|center_vertical"
+			android:orientation="horizontal">
+
+			<RadioButton
+				style="@style/Text.RadioItem"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:checked="true"
+				android:text="@string/male" />
+
+			<RadioButton
+				style="@style/Text.RadioItem"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/default_horizontal_margin"
+				android:text="@string/female" />
+		</RadioGroup>
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:text="@string/date_of_birth" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:divider="@drawable/divider_transparent_v"
+			android:orientation="horizontal"
+			android:showDividers="middle">
+
+			<androidx.appcompat.widget.AppCompatEditText
+				android:id="@+id/day_input"
+				style="@style/Input.Margin"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/default_item_height"
+				android:layout_weight="1"
+				android:hint="@string/b_day_hint"
+				android:imeOptions="actionNext"
+				android:inputType="number"
+				android:maxEms="2" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+				android:id="@+id/month_input"
+				style="@style/Input.Margin"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/default_item_height"
+
+				android:layout_weight="1"
+				android:hint="@string/b_month_hint"
+				android:imeOptions="actionNext"
+				android:inputType="number"
+				android:maxEms="2" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+				android:id="@+id/year_input"
+				style="@style/Input.Margin"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/default_item_height"
+				android:layout_weight="1"
+				android:hint="@string/b_year_hint"
+				android:imeOptions="actionDone"
+				android:inputType="number"
+				android:maxEms="2" />
+		</LinearLayout>
+
+		<androidx.appcompat.widget.AppCompatButton
+			android:id="@+id/sign_up"
+			style="@style/Button.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:text="@string/sign_up" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/login"
+			style="@style/Text.Button"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:text="@string/login" />
+	</LinearLayout>
+</androidx.core.widget.NestedScrollView>

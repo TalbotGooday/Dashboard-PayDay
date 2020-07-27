@@ -1,0 +1,31 @@
+<resources>
+	<string name="app_name">PayDay</string>
+	<string name="title_welcome_back">Welcome Back</string>
+	<string name="register">Register</string>
+	<string name="login">Login</string>
+	<string name="login_hint">Enter your login</string>
+	<string name="enter_password_hint">Enter password</string>
+	<string name="first_name">First name</string>
+	<string name="first_name_hint">Enter your first name</string>
+	<string name="last_name">Last name</string>
+	<string name="last_name_hint">Enter your last name</string>
+	<string name="phone_number">Phone number</string>
+	<string name="phone_number_hint">Enter your phone number</string>
+	<string name="email">Email</string>
+	<string name="email_hint">Enter your email</string>
+	<string name="create_password_hint">Create password</string>
+	<string name="password">Password</string>
+	<string name="confirm_password">Confirm password</string>
+	<string name="confirm_password_hint">Confirm your password</string>
+	<string name="gender">Gender</string>
+	<string name="male">Male</string>
+	<string name="female">Female</string>
+	<string name="date_of_birth">Date of birth</string>
+	<string name="b_day_hint">DD</string>
+	<string name="b_month_hint">MM</string>
+	<string name="b_year_hint">YY</string>
+	<string name="sign_up">Sign Up</string>
+	<string name="register_title">Register</string>
+	<string name="transactions_title">Transactions</string>
+	<string name="dashboard_title">Monthly Dashboard</string>
+</resources>

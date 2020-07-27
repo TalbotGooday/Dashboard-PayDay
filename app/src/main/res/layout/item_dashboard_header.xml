@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:paddingTop="@dimen/dashboard_header_padding"
+	android:paddingBottom="@dimen/dashboard_header_padding">
+
+	<androidx.appcompat.widget.AppCompatTextView
+		style="@style/Text.InputTitle.Margin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start|center_vertical"
+		android:layout_marginHorizontal="@dimen/default_horizontal_margin"
+		android:layout_marginBottom="@dimen/default_input_title_margin"
+		tools:text="Some header" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/title"
+		style="@style/Text.ItemContent.Large"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start|center_vertical"
+		android:layout_marginStart="@dimen/default_horizontal_margin"
+		android:layout_marginEnd="@dimen/default_horizontal_margin"
+		tools:text="$ 3,328" />
+</LinearLayout>

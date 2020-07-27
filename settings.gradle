@@ -1,0 +1,4 @@
+include ':storage'
+include ':network'
+include ':app'
+rootProject.name = "PayDay"
