@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/ScreenBackground"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -14,18 +16,19 @@
 			style="@style/Text.TitleContent"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:text="@string/transactions_title" />
+			android:text="@string/dashboard_title" />
 
 		<androidx.appcompat.widget.AppCompatImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="end|center_vertical"
-			android:layout_marginEnd="@dimen/default_horizontal_margin"
-			app:srcCompat="@drawable/ic_pie_chart" />
+			android:id="@+id/action_back"
+			style="@style/ToolbarImageButton"
+			android:layout_gravity="start|center_vertical"
+			android:layout_marginStart="@dimen/small_horizontal_margin"
+			app:srcCompat="@drawable/ic_back" />
 	</FrameLayout>
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/data_list"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" />
+		android:layout_height="match_parent"
+		tools:listitem="@layout/item_dashboard" />
 </LinearLayout>

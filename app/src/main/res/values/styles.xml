@@ -1,10 +1,21 @@
 <resources>
 	<!-- Base application theme. -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<!-- Customize your theme here. -->
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
+		<item name="android:statusBarColor">@color/colorStatusBar</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="screenBackgroundColor">@color/colorBackgroundDay</item>
+	</style>
+
+	<style name="Splash" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="android:background">@drawable/bg_splash_screen</item>
+	</style>
+
+	<style name="ScreenBackground">
+		<item name="android:background">?screenBackgroundColor</item>
 	</style>
 
 	<style name="Text">
@@ -43,6 +54,7 @@
 	<style name="Text.ItemContent.Large">
 		<item name="android:textSize">20sp</item>
 	</style>
+
 	<style name="Text.RadioItem">
 		<item name="android:textSize">14sp</item>
 		<item name="android:fontFamily">@font/montserrat</item>
@@ -60,6 +72,10 @@
 		<item name="android:paddingStart">12dp</item>
 		<item name="android:paddingEnd">12dp</item>
 		<item name="android:textSize">14sp</item>
+		<item name="android:maxLines">1</item>
+		<item name="android:paddingTop">@dimen/input_padding_vertical</item>
+		<item name="android:paddingBottom">@dimen/input_padding_vertical</item>
+		<item name="android:scrollHorizontally">true</item>
 		<item name="android:background">@drawable/bg_input</item>
 		<item name="android:fontFamily">@font/montserrat</item>
 		<item name="android:textColorHint">@color/colorInputHint</item>
@@ -86,4 +102,13 @@
 		<item name="android:layout_marginStart">@dimen/default_horizontal_margin</item>
 		<item name="android:layout_marginEnd">@dimen/default_horizontal_margin</item>
 	</style>
+
+	<style name="ToolbarImageButton">
+		<item name="android:padding">10dp</item>
+		<item name="android:layout_width">@dimen/default_imageButton_height</item>
+		<item name="android:layout_height">@dimen/default_imageButton_height</item>
+		<item name="android:background">?selectableItemBackgroundBorderless</item>
+	</style>
+
+	<attr name="screenBackgroundColor" format="color|reference" />
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/ScreenBackground"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -7,6 +8,8 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:focusable="true"
+		android:focusableInTouchMode="true"
 		android:orientation="vertical">
 
 		<androidx.appcompat.widget.AppCompatTextView
@@ -122,38 +125,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/default_item_top_margin"
 			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:imeOptions="actionNext"
-			android:text="@string/gender" />
-
-		<RadioGroup
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
-			android:layout_marginStart="@dimen/default_horizontal_margin"
-			android:layout_marginEnd="@dimen/default_horizontal_margin"
-			android:gravity="start|center_vertical"
-			android:orientation="horizontal">
-
-			<RadioButton
-				style="@style/Text.RadioItem"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:checked="true"
-				android:text="@string/male" />
-
-			<RadioButton
-				style="@style/Text.RadioItem"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/default_horizontal_margin"
-				android:text="@string/female" />
-		</RadioGroup>
-
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
 			android:text="@string/date_of_birth" />
 
 		<LinearLayout
@@ -172,19 +143,18 @@
 				android:hint="@string/b_day_hint"
 				android:imeOptions="actionNext"
 				android:inputType="number"
-				android:maxEms="2" />
+				android:maxLength="2" />
 
 			<androidx.appcompat.widget.AppCompatEditText
 				android:id="@+id/month_input"
 				style="@style/Input.Margin"
 				android:layout_width="match_parent"
 				android:layout_height="@dimen/default_item_height"
-
 				android:layout_weight="1"
 				android:hint="@string/b_month_hint"
 				android:imeOptions="actionNext"
 				android:inputType="number"
-				android:maxEms="2" />
+				android:maxLength="2" />
 
 			<androidx.appcompat.widget.AppCompatEditText
 				android:id="@+id/year_input"
@@ -195,8 +165,44 @@
 				android:hint="@string/b_year_hint"
 				android:imeOptions="actionDone"
 				android:inputType="number"
-				android:maxEms="2" />
+				android:maxLength="2" />
 		</LinearLayout>
+
+		<androidx.appcompat.widget.AppCompatTextView
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"
+			android:imeOptions="actionNext"
+			android:text="@string/gender" />
+
+		<RadioGroup
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/default_item_height"
+			android:layout_marginStart="@dimen/default_horizontal_margin"
+			android:layout_marginEnd="@dimen/default_horizontal_margin"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:gravity="start|center_vertical"
+			android:orientation="horizontal">
+
+			<RadioButton
+				android:id="@+id/gender_male"
+				style="@style/Text.RadioItem"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:checked="true"
+				android:text="@string/male" />
+
+			<RadioButton
+				android:id="@+id/gender_female"
+				style="@style/Text.RadioItem"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/default_horizontal_margin"
+				android:text="@string/female" />
+		</RadioGroup>
 
 		<androidx.appcompat.widget.AppCompatButton
 			android:id="@+id/sign_up"
@@ -207,7 +213,7 @@
 			android:text="@string/sign_up" />
 
 		<androidx.appcompat.widget.AppCompatTextView
-			android:id="@+id/login"
+			android:id="@+id/sign_in"
 			style="@style/Text.Button"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/default_item_height"

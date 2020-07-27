@@ -3,7 +3,8 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	style="@style/ScreenBackground">
 
 	<androidx.appcompat.widget.AppCompatTextView
 		android:id="@+id/title"
@@ -21,8 +22,10 @@
 		android:id="@+id/linearLayout"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
+		android:focusable="true"
+		android:focusableInTouchMode="true"
 		android:orientation="vertical"
-		app:layout_constraintBottom_toTopOf="@+id/register"
+		app:layout_constraintBottom_toTopOf="@+id/sign_up"
 		app:layout_constraintTop_toBottomOf="@+id/title"
 		app:layout_constraintVertical_weight="0.5">
 
@@ -58,7 +61,7 @@
 			android:inputType="textPassword" />
 
 		<androidx.appcompat.widget.AppCompatButton
-			android:id="@+id/login"
+			android:id="@+id/sign_in"
 			style="@style/Button.Margin"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -68,7 +71,7 @@
 	</LinearLayout>
 
 	<androidx.appcompat.widget.AppCompatTextView
-		android:id="@+id/register"
+		android:id="@+id/sign_up"
 		style="@style/Text.Button"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/default_item_height"
