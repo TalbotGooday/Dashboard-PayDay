@@ -12,7 +12,7 @@
 	<dimen name="default_horizontal_margin">18dp</dimen>
 	<dimen name="medium_horizontal_margin">14dp</dimen>
 	<dimen name="small_horizontal_margin">8dp</dimen>
-	<dimen name="dashboard_header_padding">4dp</dimen>
+	<dimen name="dashboard_header_padding">8dp</dimen>
 	<dimen name="input_padding_vertical">4dp</dimen>
 	<dimen name="transaction_item_vertical_margin">4dp</dimen>
 </resources>

@@ -46,15 +46,11 @@ class TransactionsActivity : AppCompatActivity(R.layout.activity_transactions) {
 		}
 	}
 
-	private fun getTransactionsAdapter() = TransactionsAdapter(object : TransactionsAdapter.Listener {
-		override fun onItemClick(item: TransactionModel) {
-
-		}
-	})
-
 	private fun openDashboardScreen() {
 		startActivity(Intent(this, DashboardActivity::class.java))
 	}
+
+	private fun getTransactionsAdapter() = TransactionsAdapter()
 
 	private fun onGotTransactions(data: List<TransactionModel>) {
 		transactionsAdapter.swapData(data)

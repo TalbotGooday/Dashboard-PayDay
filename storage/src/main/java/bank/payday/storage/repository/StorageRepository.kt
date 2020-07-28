@@ -10,5 +10,7 @@ class StorageRepository(
 
 	suspend fun getTransactions() = db.transactionsDao().getAll()
 
+	suspend fun getDashboardExpenses() = db.transactionsDao().getAllExpenses()
+
 	suspend fun saveTransactions(data: List<DTransaction>) = db.transactionsDao().addAll(data)
 }

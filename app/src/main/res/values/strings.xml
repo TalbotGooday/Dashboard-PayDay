@@ -32,6 +32,8 @@
 	<string name="error_password_length">Password must be at least 6 characters</string>
 	<string name="error_login_password">Incorrect login or password</string>
 	<string name="error_load_transactions">Error</string>
+	<string name="error_load_dashboard">Error</string>
 
 	<string name="transactions_placeholder_text">Empty</string>
+	<string name="dashboard_placeholder_text">Empty</string>
 </resources>

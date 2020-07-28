@@ -8,7 +8,7 @@ class DTransaction(
 		@PrimaryKey
 		val id: Int = 0,
 		val accountId: Int,
-		val amount: String = "",
+		val amount: Double = 0.0,
 		val vendor: String = "",
 		val category: String = "",
 		val date: String = ""

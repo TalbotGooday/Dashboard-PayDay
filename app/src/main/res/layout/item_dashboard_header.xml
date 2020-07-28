@@ -9,6 +9,7 @@
 
 	<androidx.appcompat.widget.AppCompatTextView
 		style="@style/Text.InputTitle.Margin"
+		android:id="@+id/header_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_gravity="start|center_vertical"
@@ -17,7 +18,7 @@
 		tools:text="Some header" />
 
 	<androidx.appcompat.widget.AppCompatTextView
-		android:id="@+id/title"
+		android:id="@+id/header_amount"
 		style="@style/Text.ItemContent.Large"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

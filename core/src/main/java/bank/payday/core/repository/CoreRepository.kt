@@ -1,9 +1,11 @@
 package bank.payday.core.repository
 
 import bank.payday.core.mapper.customer.CustomerMapper
-import bank.payday.core.mapper.transactions.TransactionsDbMapper
-import bank.payday.core.mapper.transactions.TransactionsUiMapper
+import bank.payday.core.mapper.dashboard.DashboardListUiMapper
+import bank.payday.core.mapper.transactions.TransactionsListDbMapper
+import bank.payday.core.mapper.transactions.TransactionsListUiMapper
 import bank.payday.core.models.customer.Customer
+import bank.payday.core.models.dashboard.DashboardModel
 import bank.payday.core.models.transactions.TransactionModel
 import bank.payday.network.repository.ApiRepository
 import bank.payday.storage.repository.StorageRepository
@@ -51,13 +53,13 @@ class CoreRepository(
 
 	suspend fun getTransactions(withHeaders: Boolean = true, refresh: Boolean = false): List<TransactionModel> {
 		val dbResults = storageRepository.getTransactions()
-		val mapper = TransactionsUiMapper(withHeaders)
+		val mapper = TransactionsListUiMapper(withHeaders)
 
 		return try {
 			if (refresh || dbResults.isEmpty()) {
 				val result = apiRepository.loadTransactions()
 
-				storageRepository.saveTransactions(TransactionsDbMapper().map(result))
+				storageRepository.saveTransactions(TransactionsListDbMapper().map(result))
 				mapper.map(storageRepository.getTransactions())
 			} else {
 				mapper.map(dbResults)
@@ -66,5 +68,10 @@ class CoreRepository(
 			e.printStackTrace()
 			mapper.map(dbResults)
 		}
+	}
+
+	suspend fun getDashboardTransactions(withHeaders: Boolean = true): List<DashboardModel> {
+		val dbResults = storageRepository.getDashboardExpenses()
+		return DashboardListUiMapper(withHeaders).map(dbResults)
 	}
 }
