@@ -7,9 +7,12 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
-internal interface Api {
+interface Api {
 	@POST("/authenticate")
-	suspend fun authenticate(@Body jsonData: HashMap<String, Any?>): NCustomerData
+	suspend fun signIn(@Body jsonData: HashMap<String, Any?>): NCustomerData
+
+	@POST("/customers")
+	suspend fun signUp(@Body jsonData: HashMap<String, Any?>): NCustomerData
 
 	@GET("/customers")
 	suspend fun loadCustomers(): List<NCustomerData>
