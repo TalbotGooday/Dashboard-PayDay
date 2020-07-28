@@ -1,4 +1,4 @@
-package bank.payday.ui_models.dashboard
+package bank.payday.core.models.dashboard
 
 import java.util.*
 

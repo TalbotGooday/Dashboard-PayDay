@@ -4,11 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import bank.payday.storage.db.models.DTransaction
+import bank.payday.storage.db.dao.CustomersDao
+import bank.payday.storage.db.dao.TransactionsDao
+import bank.payday.storage.db.models.customers.DCustomer
+import bank.payday.storage.db.models.transactions.DTransaction
 
 @Database(
 		entities = [
-			DTransaction::class
+			DTransaction::class,
+			DCustomer::class
 		],
 		version = 1,
 		exportSchema = false
@@ -28,4 +32,6 @@ abstract class PdDatabase : RoomDatabase() {
 		}
 	}
 
+	abstract fun transactionsDao(): TransactionsDao
+	abstract fun customersDao(): CustomersDao
 }

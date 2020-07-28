@@ -28,4 +28,7 @@
 	<string name="register_title">Register</string>
 	<string name="transactions_title">Transactions</string>
 	<string name="dashboard_title">Monthly Dashboard</string>
+
+	<string name="error_password_length">Password must be at least 6 characters</string>
+	<string name="error_login_password">Incorrect login or password</string>
 </resources>

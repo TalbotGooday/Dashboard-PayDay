@@ -1,4 +1,4 @@
-package bank.payday.storage.db.models
+package bank.payday.storage.db.models.transactions
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 class DTransaction(
 		@PrimaryKey
 		val id: Int = 0,
+		val accountId: Int,
 		val amount: String = "",
 		val vendor: String = "",
 		val category: String = "",

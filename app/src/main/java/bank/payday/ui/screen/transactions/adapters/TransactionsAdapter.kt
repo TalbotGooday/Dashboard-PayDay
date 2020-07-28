@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import bank.payday.R
-import bank.payday.ui_models.transactions.TransactionModel
+import bank.payday.core.models.transactions.TransactionModel
 
 class TransactionsAdapter(private val listener: Listener) : RecyclerView.Adapter<TransactionsAdapter.Holder>() {
 

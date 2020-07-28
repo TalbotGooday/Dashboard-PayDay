@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_toast"
+	android:orientation="vertical">
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/custom_toast_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:fontFamily="@font/montserrat"
+		android:gravity="center"
+		android:paddingStart="20dp"
+		android:paddingTop="10dp"
+		android:paddingEnd="20dp"
+		android:paddingBottom="10dp"
+		android:textColor="@color/colorDefaultText"
+		android:typeface="serif"
+		tools:text="Custom Toast" />
+</FrameLayout>

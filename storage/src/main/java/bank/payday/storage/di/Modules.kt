@@ -1,8 +1,9 @@
-package bank.payday.storage.modules
+package bank.payday.storage.di
 
 import android.content.Context
 import bank.payday.storage.BuildConfig
 import bank.payday.storage.db.PdDatabase
+import bank.payday.storage.repository.StorageRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -12,5 +13,11 @@ val databaseModule = module {
 		return PdDatabase.create(context, useInMemory)
 	}
 
+	fun provideStorageRepository(db: PdDatabase): StorageRepository {
+		return StorageRepository(db)
+	}
+
 	single { provideDatabase(androidContext(), BuildConfig.DEBUG) }
+
+	single { provideStorageRepository(get()) }
 }

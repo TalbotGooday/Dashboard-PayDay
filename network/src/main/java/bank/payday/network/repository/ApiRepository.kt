@@ -37,12 +37,6 @@ class ApiRepository(
 		))
 	}
 
-	private fun Long.toISO8601(): String {
-		return SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'", Locale.ENGLISH).apply {
-			timeZone = TimeZone.getTimeZone("UTC")
-		}.format(this)
-	}
-
 	suspend fun loadCustomers(): List<NCustomerData> {
 		return api.loadCustomers()
 	}
@@ -53,5 +47,11 @@ class ApiRepository(
 
 	suspend fun loadTransactions(): List<NTransaction> {
 		return api.loadTransactions()
+	}
+
+	private fun Long.toISO8601(): String {
+		return SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'", Locale.ENGLISH).apply {
+			timeZone = TimeZone.getTimeZone("UTC")
+		}.format(this)
 	}
 }
