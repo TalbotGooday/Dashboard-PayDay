@@ -40,7 +40,7 @@ class CoreRepository(
 		return CustomerMapper().map(response)
 	}
 
-	suspend fun getCustomers(refresh: Boolean) {
+	suspend fun getCustomers(refresh: Boolean = false) {
 		val dbResults = storageRepository.getCustomers()
 		try {
 			apiRepository.loadCustomers()
@@ -49,9 +49,9 @@ class CoreRepository(
 		}
 	}
 
-	suspend fun getTransactions(refresh: Boolean): List<TransactionModel> {
+	suspend fun getTransactions(withHeaders: Boolean = true, refresh: Boolean = false): List<TransactionModel> {
 		val dbResults = storageRepository.getTransactions()
-		val mapper = TransactionsUiMapper()
+		val mapper = TransactionsUiMapper(withHeaders)
 
 		return try {
 			if (refresh || dbResults.isEmpty()) {
@@ -63,6 +63,7 @@ class CoreRepository(
 				mapper.map(dbResults)
 			}
 		} catch (e: Exception) {
+			e.printStackTrace()
 			mapper.map(dbResults)
 		}
 	}

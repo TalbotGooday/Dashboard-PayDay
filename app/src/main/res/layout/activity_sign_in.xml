@@ -73,10 +73,9 @@
 				android:text="@string/login" />
 
 			<ProgressBar
+				style="@style/ProgressBar"
 				android:id="@+id/progress"
 				android:visibility="gone"
-				android:layout_width="@dimen/default_progress_size"
-				android:layout_height="@dimen/default_progress_size"
 				android:layout_gravity="center" />
 		</FrameLayout>
 	</LinearLayout>

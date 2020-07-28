@@ -6,7 +6,7 @@
 	<dimen name="default_item_top_margin">28dp</dimen>
 	<dimen name="title_view_height">200dp</dimen>
 	<dimen name="content_title_view_height">100dp</dimen>
-	<dimen name="item_header_height">32dp</dimen>
+	<dimen name="item_header_height">24dp</dimen>
 	<dimen name="fake_avatar_height">32dp</dimen>
 	<dimen name="default_progress_size">32dp</dimen>
 	<dimen name="default_horizontal_margin">18dp</dimen>
@@ -14,4 +14,5 @@
 	<dimen name="small_horizontal_margin">8dp</dimen>
 	<dimen name="dashboard_header_padding">4dp</dimen>
 	<dimen name="input_padding_vertical">4dp</dimen>
+	<dimen name="transaction_item_vertical_margin">4dp</dimen>
 </resources>

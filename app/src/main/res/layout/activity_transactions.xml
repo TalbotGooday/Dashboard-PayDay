@@ -26,9 +26,32 @@
 			app:srcCompat="@drawable/ic_pie_chart" />
 	</FrameLayout>
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/data_list"
+	<FrameLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		tools:listitem="@layout/item_transaction"/>
+		android:layout_height="match_parent">
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/data_list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			tools:listitem="@layout/item_transaction" />
+
+		<ProgressBar
+			android:id="@+id/progress"
+			style="@style/ProgressBar"
+			android:layout_gravity="center" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/error_placeholder"
+			style="@style/Text.Placeholder"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:text="@string/error_load_transactions"
+			android:visibility="gone"
+			tools:visibility="visible" />
+
+	</FrameLayout>
+
 </LinearLayout>

@@ -34,6 +34,12 @@
 		<item name="android:gravity">center</item>
 	</style>
 
+	<style name="Text.Placeholder">
+		<item name="android:textSize">22sp</item>
+		<item name="android:fontFamily">@font/montserrat</item>
+		<item name="android:gravity">center</item>
+	</style>
+
 	<style name="Text.InputTitle">
 		<item name="android:textSize">12sp</item>
 		<item name="android:fontFamily">@font/montserrat</item>
@@ -46,7 +52,8 @@
 
 	<style name="Text.ItemContent">
 		<item name="android:textSize">14sp</item>
-		<item name="android:fontFamily">@font/montserrat_bold</item>
+		<item name="android:fontFamily">@font/montserrat_medium</item>
+		<item name="android:textColor">@color/colorDefaultText</item>
 		<item name="android:maxLines">1</item>
 		<item name="android:ellipsize">end</item>
 	</style>
@@ -101,6 +108,11 @@
 	<style name="Button.Margin">
 		<item name="android:layout_marginStart">@dimen/default_horizontal_margin</item>
 		<item name="android:layout_marginEnd">@dimen/default_horizontal_margin</item>
+	</style>
+
+	<style name="ProgressBar">
+		<item name="android:layout_width">@dimen/default_progress_size</item>
+		<item name="android:layout_height">@dimen/default_progress_size</item>
 	</style>
 
 	<style name="ToolbarImageButton">

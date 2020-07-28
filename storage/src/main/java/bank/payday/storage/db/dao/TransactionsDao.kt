@@ -12,7 +12,7 @@ interface TransactionsDao {
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	suspend fun addAll(data: List<DTransaction>)
 
-	@Query("SELECT * FROM DTransaction ORDER BY date")
+	@Query("SELECT * FROM DTransaction ORDER BY date DESC")
 	suspend fun getAll(): List<DTransaction>
 
 
