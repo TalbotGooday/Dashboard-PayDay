@@ -34,6 +34,7 @@ class SignUpActivity : AppCompatActivity(R.layout.activity_sign_up) {
 			hideFieldsErrors()
 			signUp()
 		}
+
 		sign_in.setOnClickListener { openSignInScreen() }
 	}
 
