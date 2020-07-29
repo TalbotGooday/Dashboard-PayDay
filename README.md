@@ -1,13 +1,17 @@
+# Solution Architecture Diagram
+
+# Flow diagrams
+
 # Answers to technical questions
 
 ### 1. How long did you spend on the coding test?
-The coding test took me about 22 hours:
+The coding test took me about 23 hours:
 * Design: 6h;
 * Application architecture: 4h;
 * Business logic implementation: 10h;
-* Readme creation: 2h.
+* Readme creation: 3h.
 ### 2. What would you add to your solution if you had more time? If you didn'tspend much time on the coding test then use this as an opportunity to explain what you would add.
-I would add better validation for fields like email, phone. Perhaps I would add a logout function, I would have worked on the UX in more detail. It would also be interesting to create screens of detailed information on payments.
+I would add better validation for fields like email, phone, more complete business logic for working with the API, which would include handling cases with no network. Perhaps I would add a logout function, I would have worked on the UX in more detail. It would also be interesting to create screens of detailed information on payments.
 Also, perhaps, I would create my own version of the test server, which is closer to real projects.
 ### 3. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 I liked the last major update of the Kotlin (1.3.70) with the new function `scan()`.
