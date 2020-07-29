@@ -1,15 +1,20 @@
 package bank.payday.ui.screen.dashboard
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.util.Pair
+import androidx.core.view.children
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import bank.payday.R
 import bank.payday.core.models.dashboard.DashboardModel
-import bank.payday.extensions.visibleOrGone
-import bank.payday.extensions.visibleOrInvisible
+import bank.payday.extensions.*
 import bank.payday.ui.screen.dashboard.adapters.DashboardAdapter
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,13 +31,76 @@ class DashboardActivity : AppCompatActivity(R.layout.activity_dashboard) {
 
 		initViews()
 
-		viewModel.getDashboardTransactions()
+		switchDebitCredit(action_debit)
 	}
 
 	private fun initViews() {
 		action_back.setOnClickListener { finish() }
+		action_debit.setOnClickListener { switchDebitCredit(it) }
+		action_credit.setOnClickListener { switchDebitCredit(it) }
+		action_date_pick.setOnClickListener { openDatePicker() }
 
+		action_clear_date_pick.setOnClickListener { disableDateFilter() }
 		initDashboardList()
+	}
+
+	private fun openDatePicker() {
+		val range = CalendarConstraints.Builder().build()
+
+		val pickerBuilder = MaterialDatePicker.Builder
+				.dateRangePicker()
+				.setCalendarConstraints(range)
+
+		if (viewModel.dateStart != 0L) {
+			pickerBuilder.setSelection(Pair(viewModel.dateStart, viewModel.dateEnd))
+		}
+
+		val picker = pickerBuilder.build()
+
+		picker.addOnPositiveButtonClickListener {
+			val dateStart = it.first
+			val dateEnd = it.second
+
+			enableDateFilter(dateStart, dateEnd)
+		}
+
+		picker.show(supportFragmentManager, "MaterialDatePicker")
+	}
+
+	private fun enableDateFilter(dateStart: Long?, dateEnd: Long?) {
+		action_clear_date_pick.visible()
+
+		viewModel.getDashboardTransactions(
+				dateStart = dateStart,
+				dateEnd = dateEnd
+		)
+	}
+
+	private fun disableDateFilter() {
+		action_clear_date_pick.gone()
+
+		viewModel.getDefaultDashboardTransactions()
+	}
+
+	private fun switchDebitCredit(it: View) {
+		val isDebit = it.id == R.id.action_debit
+		viewModel.getDashboardTransactions(isDebit = isDebit)
+
+		setSelected(it.id)
+	}
+
+	private fun setSelected(viewId: Int) {
+		container_menu.children.forEach {
+			if (it.tag == "button" && it is TextView) {
+				val textColor = if (it.id == viewId) {
+					R.color.colorDefaultText
+				} else {
+					R.color.colorButtonText
+				}
+
+				it.setTextColor(color(textColor))
+			}
+		}
 	}
 
 	private fun initDashboardList() {
@@ -83,5 +151,4 @@ class DashboardActivity : AppCompatActivity(R.layout.activity_dashboard) {
 	private fun setWidgetsLoadingState(isLoading: Boolean) {
 		progress.visibleOrInvisible(isLoading)
 	}
-
 }

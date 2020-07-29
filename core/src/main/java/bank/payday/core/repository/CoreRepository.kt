@@ -1,6 +1,7 @@
 package bank.payday.core.repository
 
 import bank.payday.core.mapper.customer.CustomerMapper
+import bank.payday.core.mapper.customer.DCustomersMapper
 import bank.payday.core.mapper.dashboard.DashboardListUiMapper
 import bank.payday.core.mapper.transactions.TransactionsListDbMapper
 import bank.payday.core.mapper.transactions.TransactionsListUiMapper
@@ -42,12 +43,11 @@ class CoreRepository(
 		return CustomerMapper().map(response)
 	}
 
-	suspend fun getCustomers(refresh: Boolean = false) {
-		val dbResults = storageRepository.getCustomers()
+	suspend fun getCustomers() {
 		try {
-			apiRepository.loadCustomers()
+			val data = apiRepository.loadCustomers()
+			storageRepository.saveCustomers(DCustomersMapper().map(data))
 		} catch (e: Exception) {
-
 		}
 	}
 
@@ -70,8 +70,18 @@ class CoreRepository(
 		}
 	}
 
-	suspend fun getDashboardTransactions(withHeaders: Boolean = true): List<DashboardModel> {
-		val dbResults = storageRepository.getDashboardExpenses()
+	suspend fun getDashboardTransactions(
+			isDebit: Boolean,
+			dateStart: String,
+			dateEnd: String,
+			withHeaders: Boolean = true
+	): List<DashboardModel> {
+		val dbResults = if (isDebit) {
+			storageRepository.getDebit(dateStart, dateEnd)
+		} else {
+			storageRepository.getCredit(dateStart, dateEnd)
+		}
+
 		return DashboardListUiMapper(withHeaders).map(dbResults)
 	}
 }

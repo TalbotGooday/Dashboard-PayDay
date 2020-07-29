@@ -7,14 +7,18 @@ import bank.payday.storage.repository.StorageRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-val databaseModule = module {
+val storageModule = module {
 
 	fun provideDatabase(context: Context, useInMemory: Boolean): PdDatabase {
 		return PdDatabase.create(context, useInMemory)
 	}
 
-	fun provideStorageRepository(db: PdDatabase): StorageRepository {
-		return StorageRepository(db)
+	fun provideStorageRepository(
+			db: PdDatabase
+	): StorageRepository {
+		return StorageRepository(
+				db = db
+		)
 	}
 
 	single { provideDatabase(androidContext(), BuildConfig.DEBUG) }

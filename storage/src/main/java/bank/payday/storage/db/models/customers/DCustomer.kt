@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class DCustomer(
+open class DCustomer(
 		@PrimaryKey
 		val id: Int = 0,
 		val firstName: String = "",

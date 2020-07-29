@@ -26,6 +26,60 @@
 			app:srcCompat="@drawable/ic_back" />
 	</FrameLayout>
 
+	<LinearLayout
+		android:id="@+id/container_menu"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/default_item_height"
+		android:orientation="horizontal">
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/action_debit"
+			style="@style/Text.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/default_item_height"
+			android:minWidth="80dp"
+			android:tag="button"
+			android:text="@string/debit"
+			android:textColor="@color/colorButtonText"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintVertical_weight="0.1" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/action_credit"
+			style="@style/Text.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/default_item_height"
+			android:minWidth="80dp"
+			android:tag="button"
+			android:text="@string/credit"
+			android:textColor="@color/colorButtonText"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintVertical_weight="0.1" />
+
+		<Space
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1" />
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/action_date_pick"
+			style="@style/ToolbarImageButton"
+			android:layout_gravity="start|center_vertical"
+			android:layout_marginStart="@dimen/small_horizontal_margin"
+			android:layout_marginEnd="@dimen/small_horizontal_margin"
+			app:srcCompat="@drawable/ic_calendar" />
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/action_clear_date_pick"
+			style="@style/ToolbarImageButton"
+			android:layout_gravity="start|center_vertical"
+			android:layout_marginEnd="@dimen/small_horizontal_margin"
+			android:visibility="gone"
+			android:tint="@color/colorDisableFilter"
+			app:srcCompat="@drawable/ic_calendar_close"
+			tools:visibility="visible" />
+	</LinearLayout>
+
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">

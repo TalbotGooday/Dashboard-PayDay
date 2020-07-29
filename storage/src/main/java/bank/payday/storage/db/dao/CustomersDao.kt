@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import bank.payday.storage.db.models.customers.DCustomer
+import bank.payday.storage.db.models.customers.DUser
 
 @Dao
 interface CustomersDao {
@@ -15,5 +16,7 @@ interface CustomersDao {
 	@Query("SELECT * FROM DCustomer")
 	suspend fun getAll(): List<DCustomer>
 
+	@Query("SELECT * FROM DUser LIMIT 1")
+	suspend fun getCurrentLogged(): DUser?
 
 }

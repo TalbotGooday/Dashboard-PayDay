@@ -15,7 +15,11 @@ interface TransactionsDao {
 	@Query("SELECT * FROM DTransaction ORDER BY date DESC")
 	suspend fun getAll(): List<DTransaction>
 
-	@Query("SELECT * FROM DTransaction WHERE amount < 0.0 ORDER BY date DESC")
-	suspend fun getAllExpenses(): List<DTransaction>
+	//accountId == :accountId AND
+	@Query("SELECT * FROM DTransaction WHERE amount >= 0.0 AND date BETWEEN :dateStart and :dateEnd ORDER BY date DESC")
+	suspend fun getDebit(/*accountId: Int,*/ dateStart: String, dateEnd: String): List<DTransaction>
+
+	@Query("SELECT * FROM DTransaction WHERE amount < 0.0 AND date BETWEEN :dateStart and :dateEnd ORDER BY date DESC")
+	suspend fun getCredit(/*accountId: Int,*/ dateStart: String, dateEnd: String): List<DTransaction>
 
 }

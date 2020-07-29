@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import bank.payday.R
 
 
@@ -23,4 +25,8 @@ fun Context.toastApp(message: String? = null, @StringRes messageRes: Int? = null
 		this.duration = duration
 		this.show()
 	}
+}
+
+fun Context.color(@ColorRes colorRes: Int): Int {
+	return ContextCompat.getColor(this, colorRes)
 }

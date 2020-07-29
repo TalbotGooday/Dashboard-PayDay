@@ -7,6 +7,7 @@
 	<dimen name="default_item_top_margin">12dp</dimen>
 	<dimen name="title_view_height">200dp</dimen>
 	<dimen name="content_title_view_height">100dp</dimen>
+	<dimen name="content_title_view_height_medium">148dp</dimen>
 	<dimen name="item_header_height">24dp</dimen>
 	<dimen name="fake_avatar_height">32dp</dimen>
 	<dimen name="default_progress_size">32dp</dimen>

@@ -40,4 +40,6 @@
 	<string name="transactions_placeholder_text">Empty</string>
 	<string name="dashboard_placeholder_text">Empty</string>
 	<string name="error_date">Invalid date</string>
+	<string name="debit">Debit</string>
+	<string name="credit">Credit</string>
 </resources>

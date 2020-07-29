@@ -3,6 +3,7 @@ package bank.payday.ui.screen.sign_in
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import androidx.lifecycle.observe
 import bank.payday.BuildConfig
 import bank.payday.R
@@ -10,6 +11,7 @@ import bank.payday.extensions.toastApp
 import bank.payday.extensions.visibleOrInvisible
 import bank.payday.ui.screen.sign_up.SignUpActivity
 import bank.payday.ui.screen.transactions.TransactionsActivity
+import bank.payday.widgets.DefaultInput
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,7 +31,10 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 	}
 
 	private fun initViews() {
-		sign_in.setOnClickListener { signIn() }
+		sign_in.setOnClickListener {
+			hideFieldsErrors()
+			signIn()
+		}
 		sign_up.setOnClickListener { openSignUpScreen() }
 
 		if (BuildConfig.DEBUG) {
@@ -54,8 +59,8 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 	}
 
 	private fun signIn() {
-		val login = login_input.text?.toString() ?: return
-		val password = password_input.text?.toString() ?: return
+		val login = login_input.validateLength() ?: return
+		val password = password_input.validateLength() ?: return
 
 		if (login.isBlank()) return
 		if (password.isBlank()) return
@@ -88,6 +93,14 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 
 	private fun showSignInError() {
 		toastApp(messageRes = R.string.error_login_password)
+	}
+
+	private fun hideFieldsErrors() {
+		form_container.children.forEach {
+			if (it is DefaultInput) {
+				it.hideError()
+			}
+		}
 	}
 
 

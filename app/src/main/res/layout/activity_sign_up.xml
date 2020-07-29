@@ -189,6 +189,7 @@
 				style="@style/Button.Margin"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:enabled="false"
 				android:text="@string/sign_up" />
 
 			<ProgressBar
