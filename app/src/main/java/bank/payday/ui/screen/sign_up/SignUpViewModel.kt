@@ -26,6 +26,18 @@ class SignUpViewModel(
 			_state.postValue(SignUpViewState.Loading)
 
 			try {
+				if (coreRepository.isCustomerPhoneFree(phone).not()) {
+					_state.postValue(SignUpViewState.ErrorPhone)
+
+					return@launch
+				}
+
+				if (coreRepository.isCustomerEmailFree(email).not()) {
+					_state.postValue(SignUpViewState.ErrorEmail)
+
+					return@launch
+				}
+
 				coreRepository.signUp(
 						firstName = firstName,
 						lastName = lastName,

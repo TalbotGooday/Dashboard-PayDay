@@ -34,7 +34,7 @@
 
 		<androidx.appcompat.widget.AppCompatTextView
 			android:id="@+id/action_debit"
-			style="@style/Text.Button"
+			style="@style/Text.Button.Large"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/default_item_height"
 			android:minWidth="80dp"
@@ -46,7 +46,7 @@
 
 		<androidx.appcompat.widget.AppCompatTextView
 			android:id="@+id/action_credit"
-			style="@style/Text.Button"
+			style="@style/Text.Button.Large"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/default_item_height"
 			android:minWidth="80dp"

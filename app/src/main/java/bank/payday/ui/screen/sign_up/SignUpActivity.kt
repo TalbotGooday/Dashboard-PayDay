@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 import androidx.lifecycle.observe
 import bank.payday.R
+import bank.payday.constants.EMAIL_MIN_LENGTH
+import bank.payday.constants.PASSWORD_MIN_LENGTH
+import bank.payday.constants.PHONE_MIN_LENGTH
 import bank.payday.extensions.invisible
 import bank.payday.extensions.toastApp
 import bank.payday.extensions.visible
@@ -50,12 +53,20 @@ class SignUpActivity : AppCompatActivity(R.layout.activity_sign_up) {
 			SignUpViewState.SignedUp -> {
 				openMainScreenAndFinish()
 			}
+			SignUpViewState.ErrorEmail -> {
+				email_input.error(R.string.error_email_is_use)
+				setWidgetsLoadingState(false)
+			}
+			SignUpViewState.ErrorPhone -> {
+				phone_input.error(R.string.error_phone_is_use)
+				setWidgetsLoadingState(false)
+			}
 		}
 	}
 
 	private fun openSignInScreen() {
 		startActivity(Intent(this, SignInActivity::class.java).apply {
-			addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+			addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
 		})
 
 		finish()
@@ -64,12 +75,13 @@ class SignUpActivity : AppCompatActivity(R.layout.activity_sign_up) {
 	private fun signUp() {
 		val firstName = first_name_input.validateLength() ?: return
 		val lastName = last_name_input.validateLength() ?: return
-		val phone = phone_input.validateLength(minLength = 8) ?: return
-		val email = email_input.validateLength(minLength = 5) ?: return
+		val phone = phone_input.validateLength(minLength = PHONE_MIN_LENGTH) ?: return
+		val email = email_input.validateLength(minLength = EMAIL_MIN_LENGTH) ?: return
 
-		val password = password_input.validateLength(minLength = 6) ?: return
+		val password = password_input.validateLength(minLength = PASSWORD_MIN_LENGTH) ?: return
 
-		confirm_password_input.validatePassword(minLength = 6, reference = password) ?: return
+		confirm_password_input.validatePassword(minLength = PASSWORD_MIN_LENGTH, reference = password)
+				?: return
 
 		val birthDate = validateBirthDate() ?: return
 
@@ -117,7 +129,7 @@ class SignUpActivity : AppCompatActivity(R.layout.activity_sign_up) {
 		sign_up.visibleOrInvisible(isLoading.not())
 		progress.visibleOrInvisible(isLoading)
 
-		sign_up.isEnabled = isLoading
+		sign_up.isEnabled = isLoading.not()
 	}
 
 	private fun hideFieldsErrors() {

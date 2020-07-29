@@ -19,6 +19,12 @@ class SignInViewModel(
 			_state.postValue(SignInViewState.Loading)
 
 			try {
+				if (coreRepository.isCustomerEmailFree(login)) {
+					_state.postValue(SignInViewState.ErrorCustomerNotExists)
+
+					return@launch
+				}
+
 				coreRepository.signIn(login, password)
 				_state.postValue(SignInViewState.SignedIn)
 			} catch (e: Exception) {

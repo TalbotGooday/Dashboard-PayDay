@@ -16,7 +16,16 @@ interface CustomersDao {
 	@Query("SELECT * FROM DCustomer")
 	suspend fun getAll(): List<DCustomer>
 
+	@Insert(onConflict = OnConflictStrategy.REPLACE)
+	suspend fun saveCurrentUser(user: DUser)
+
 	@Query("SELECT * FROM DUser LIMIT 1")
 	suspend fun getCurrentLogged(): DUser?
+
+	@Query("SELECT * FROM DCustomer WHERE email = :email LIMIT 1")
+	suspend fun getCustomerByEmail(email: String): DCustomer?
+
+	@Query("SELECT * FROM DCustomer WHERE phone = :phone LIMIT 1")
+	suspend fun getCustomerByPhone(phone: String): DCustomer?
 
 }

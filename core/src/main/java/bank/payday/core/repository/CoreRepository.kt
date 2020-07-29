@@ -2,6 +2,7 @@ package bank.payday.core.repository
 
 import bank.payday.core.mapper.customer.CustomerMapper
 import bank.payday.core.mapper.customer.DCustomersMapper
+import bank.payday.core.mapper.customer.DUserMapper
 import bank.payday.core.mapper.dashboard.DashboardListUiMapper
 import bank.payday.core.mapper.transactions.TransactionsListDbMapper
 import bank.payday.core.mapper.transactions.TransactionsListUiMapper
@@ -15,8 +16,17 @@ class CoreRepository(
 		private val apiRepository: ApiRepository,
 		private val storageRepository: StorageRepository
 ) {
+	suspend fun loadInitialData() {
+		val data = apiRepository.loadCustomers()
+		storageRepository.saveCustomers(DCustomersMapper().map(data))
+	}
+
+	suspend fun isCustomerSignedIn() = storageRepository.getCurrentCustomer() != null
+
 	suspend fun signIn(email: String, password: String): Customer {
 		val response = apiRepository.signIn(email, password)
+
+		storageRepository.saveCurrentCustomer(DUserMapper().map(response))
 
 		return CustomerMapper().map(response)
 	}
@@ -43,13 +53,9 @@ class CoreRepository(
 		return CustomerMapper().map(response)
 	}
 
-	suspend fun getCustomers() {
-		try {
-			val data = apiRepository.loadCustomers()
-			storageRepository.saveCustomers(DCustomersMapper().map(data))
-		} catch (e: Exception) {
-		}
-	}
+	suspend fun isCustomerEmailFree(email: String) = storageRepository.getCustomerByEmail(email) == null
+
+	suspend fun isCustomerPhoneFree(phone: String) = storageRepository.getCustomerByPhone(phone) == null
 
 	suspend fun getTransactions(withHeaders: Boolean = true, refresh: Boolean = false): List<TransactionModel> {
 		val dbResults = storageRepository.getTransactions()

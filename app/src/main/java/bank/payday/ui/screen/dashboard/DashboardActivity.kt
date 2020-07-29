@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.util.Pair
 import androidx.core.view.children
 import androidx.lifecycle.observe
@@ -92,13 +93,13 @@ class DashboardActivity : AppCompatActivity(R.layout.activity_dashboard) {
 	private fun setSelected(viewId: Int) {
 		container_menu.children.forEach {
 			if (it.tag == "button" && it is TextView) {
-				val textColor = if (it.id == viewId) {
-					R.color.colorDefaultText
+				val font = if (it.id == viewId) {
+					R.font.montserrat_bold
 				} else {
-					R.color.colorButtonText
+					R.font.montserrat
 				}
 
-				it.setTextColor(color(textColor))
+				it.typeface = ResourcesCompat.getFont(this, font)
 			}
 		}
 	}
