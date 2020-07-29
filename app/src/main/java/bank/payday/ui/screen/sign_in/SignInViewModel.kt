@@ -20,7 +20,7 @@ class SignInViewModel(
 
 			try {
 				coreRepository.signIn(login, password)
-				_state.postValue(SignInViewState.Loaded)
+				_state.postValue(SignInViewState.SignedIn)
 			} catch (e: Exception) {
 				e.printStackTrace()
 				_state.postValue(SignInViewState.Error)

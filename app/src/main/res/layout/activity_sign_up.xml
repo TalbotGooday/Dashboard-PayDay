@@ -44,7 +44,7 @@
 			android:text="@string/last_name" />
 
 		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/login_input"
+			android:id="@+id/last_name_input"
 			style="@style/Input.Margin"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/default_item_height"
@@ -178,6 +178,7 @@
 			android:text="@string/gender" />
 
 		<RadioGroup
+			android:id="@+id/gender_group"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/default_item_height"
 			android:layout_marginStart="@dimen/default_horizontal_margin"
@@ -204,13 +205,24 @@
 				android:text="@string/female" />
 		</RadioGroup>
 
-		<androidx.appcompat.widget.AppCompatButton
-			android:id="@+id/sign_up"
-			style="@style/Button.Margin"
+		<FrameLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:text="@string/sign_up" />
+			android:layout_marginTop="@dimen/default_item_top_margin">
+
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/sign_up"
+				style="@style/Button.Margin"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/sign_up" />
+
+			<ProgressBar
+				android:id="@+id/progress"
+				style="@style/ProgressBar"
+				android:layout_gravity="center"
+				android:visibility="gone" />
+		</FrameLayout>
 
 		<androidx.appcompat.widget.AppCompatTextView
 			android:id="@+id/sign_in"

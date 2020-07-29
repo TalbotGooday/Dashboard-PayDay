@@ -47,7 +47,7 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 				showSignInError()
 				setWidgetsLoadingState(false)
 			}
-			SignInViewState.Loaded -> {
+			SignInViewState.SignedIn -> {
 				openMainScreenAndFinish()
 			}
 		}
@@ -69,6 +69,13 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 		viewModel.signIn(login, password)
 	}
 
+	private fun setWidgetsLoadingState(isLoading: Boolean) {
+		sign_in.visibleOrInvisible(isLoading.not())
+		progress.visibleOrInvisible(isLoading)
+
+		sign_up.isEnabled = isLoading
+	}
+
 	private fun openMainScreenAndFinish() {
 		startActivity(Intent(this, TransactionsActivity::class.java))
 
@@ -84,10 +91,4 @@ class SignInActivity : AppCompatActivity(R.layout.activity_sign_in) {
 	}
 
 
-	private fun setWidgetsLoadingState(isLoading: Boolean) {
-		sign_in.visibleOrInvisible(isLoading.not())
-		progress.visibleOrInvisible(isLoading)
-
-		sign_up.isEnabled = isLoading
-	}
 }

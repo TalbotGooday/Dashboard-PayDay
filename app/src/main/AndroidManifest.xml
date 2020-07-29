@@ -19,11 +19,7 @@
 		<activity android:name=".ui.screen.sign_in.SignInActivity" />
 		<activity android:name=".ui.screen.sign_up.SignUpActivity" />
 		<activity android:name=".ui.screen.transactions.TransactionsActivity" >
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
 
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
 		</activity>
 		<activity android:name=".ui.screen.dashboard.DashboardActivity" />
 

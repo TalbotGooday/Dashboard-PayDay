@@ -5,5 +5,5 @@ import bank.payday.base.view_state.BaseViewState
 sealed class SignInViewState : BaseViewState {
 	object Loading : SignInViewState()
 	object Error : SignInViewState()
-	object Loaded : SignInViewState()
+	object SignedIn : SignInViewState()
 }
