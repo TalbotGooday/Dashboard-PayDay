@@ -6,17 +6,31 @@
 	android:orientation="vertical">
 
 	<androidx.appcompat.widget.AppCompatTextView
-		android:id="@+id/title"
-		style="@style/Text.InputTitle"
+		style="@style/Text.InputTitle.Margin"
+		android:id="@+id/input_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="@dimen/default_input_title_margin"
-		tools:text="Some title" />
+		android:text="@string/login" />
 
 	<androidx.appcompat.widget.AppCompatEditText
-		android:id="@+id/input"
-		style="@style/Input"
+		android:id="@+id/input_field"
+		style="@style/Input.Margin"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/default_item_height"
-		tools:hint="Some hint" />
+		android:hint="@string/login_hint"
+		android:inputType="textWebEmailAddress" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/input_error"
+		android:visibility="invisible"
+		tools:visibility="visible"
+		style="@style/Text.InputTitle.Margin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="@color/colorDefaultError"
+		android:layout_marginTop="@dimen/default_input_error_margin"
+		android:layout_marginBottom="@dimen/default_input_title_margin"
+		android:text="@string/login" />
+
 </LinearLayout>

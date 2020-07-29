@@ -11,6 +11,8 @@
 		style="@style/Text.Title"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
+		android:focusable="true"
+		android:focusableInTouchMode="true"
 		android:text="@string/title_welcome_back"
 		app:layout_constraintBottom_toTopOf="@+id/linearLayout"
 		app:layout_constraintEnd_toEndOf="parent"
@@ -22,48 +24,32 @@
 		android:id="@+id/linearLayout"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:focusable="true"
-		android:focusableInTouchMode="true"
 		android:orientation="vertical"
 		app:layout_constraintBottom_toTopOf="@+id/sign_up"
 		app:layout_constraintTop_toBottomOf="@+id/title"
 		app:layout_constraintVertical_weight="0.5">
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/login_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/login" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/login_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/login_hint"
-			android:inputType="textWebEmailAddress" />
+			android:title="@string/login"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/password_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/enter_password_hint" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/password_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/enter_password_hint"
-			android:inputType="textPassword" />
+			android:title="@string/enter_password_hint"
+			app:visibilityError="false" />
 
 		<FrameLayout
-			android:layout_marginTop="@dimen/default_item_top_margin"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_item_top_margin">
 
 			<androidx.appcompat.widget.AppCompatButton
 				android:id="@+id/sign_in"
@@ -73,10 +59,10 @@
 				android:text="@string/login" />
 
 			<ProgressBar
-				style="@style/ProgressBar"
 				android:id="@+id/progress"
-				android:visibility="gone"
-				android:layout_gravity="center" />
+				style="@style/ProgressBar"
+				android:layout_gravity="center"
+				android:visibility="gone" />
 		</FrameLayout>
 	</LinearLayout>
 

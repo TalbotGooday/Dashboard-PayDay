@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	style="@style/ScreenBackground"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
 	<LinearLayout
+		android:id="@+id/form_container"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:focusable="true"
@@ -19,111 +22,70 @@
 			android:layout_height="@dimen/title_view_height"
 			android:text="@string/register_title" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/first_name_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/first_name" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/first_name_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/first_name_hint"
 			android:imeOptions="actionNext"
-			android:inputType="textNoSuggestions" />
+			android:inputType="textNoSuggestions"
+			android:title="@string/first_name"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/last_name_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/last_name" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/last_name_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/last_name_hint"
 			android:imeOptions="actionNext"
-			android:inputType="textNoSuggestions" />
+			android:inputType="textNoSuggestions"
+			android:title="@string/last_name"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/phone_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/phone_number" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/phone_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/phone_number_hint"
 			android:imeOptions="actionNext"
-			android:inputType="phone" />
+			android:inputType="phone"
+			android:title="@string/phone_number"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/email_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/email" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/email_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/email_hint"
 			android:imeOptions="actionNext"
-			android:inputType="textWebEmailAddress" />
+			android:inputType="textWebEmailAddress"
+			android:title="@string/email"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
+		<bank.payday.widgets.DefaultInput
+			android:id="@+id/password_input"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/password" />
-
-		<androidx.appcompat.widget.AppCompatEditText
-			android:id="@+id/password_input"
-			style="@style/Input.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
 			android:hint="@string/create_password_hint"
 			android:imeOptions="actionNext"
-			android:inputType="textPassword" />
+			android:inputType="textPassword"
+			android:title="@string/password"
+			app:visibilityError="false" />
 
-		<androidx.appcompat.widget.AppCompatTextView
-			style="@style/Text.InputTitle.Margin"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
-			android:layout_marginBottom="@dimen/default_input_title_margin"
-			android:text="@string/confirm_password" />
-
-		<androidx.appcompat.widget.AppCompatEditText
+		<bank.payday.widgets.DefaultInput
 			android:id="@+id/confirm_password_input"
-			style="@style/Input.Margin"
 			android:layout_width="match_parent"
-			android:layout_height="@dimen/default_item_height"
+			android:layout_height="wrap_content"
 			android:hint="@string/confirm_password_hint"
-			android:inputType="textPassword" />
+			android:imeOptions="actionNext"
+			android:inputType="textPassword"
+			android:title="@string/confirm_password"
+			app:visibilityError="false" />
 
 		<androidx.appcompat.widget.AppCompatTextView
 			style="@style/Text.InputTitle.Margin"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/default_item_top_margin"
 			android:layout_marginBottom="@dimen/default_input_title_margin"
 			android:text="@string/date_of_birth" />
 
@@ -165,8 +127,20 @@
 				android:hint="@string/b_year_hint"
 				android:imeOptions="actionDone"
 				android:inputType="number"
-				android:maxLength="2" />
+				android:maxLength="4" />
 		</LinearLayout>
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/date_error"
+			android:tag="error"
+			style="@style/Text.InputTitle.Margin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_input_error_margin"
+			android:layout_marginBottom="@dimen/default_input_title_margin"			android:text="@string/error_date"
+			android:textColor="@color/colorDefaultError"
+			android:visibility="invisible"
+			tools:visibility="visible" />
 
 		<androidx.appcompat.widget.AppCompatTextView
 			style="@style/Text.InputTitle.Margin"

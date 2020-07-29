@@ -3,7 +3,8 @@
 	<dimen name="default_item_height">48dp</dimen>
 	<dimen name="default_imageButton_height">38dp</dimen>
 	<dimen name="default_input_title_margin">5dp</dimen>
-	<dimen name="default_item_top_margin">28dp</dimen>
+	<dimen name="default_input_error_margin">1dp</dimen>
+	<dimen name="default_item_top_margin">12dp</dimen>
 	<dimen name="title_view_height">200dp</dimen>
 	<dimen name="content_title_view_height">100dp</dimen>
 	<dimen name="item_header_height">24dp</dimen>

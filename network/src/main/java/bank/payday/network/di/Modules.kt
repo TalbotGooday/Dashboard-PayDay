@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -15,7 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://192.168.1.7:3000"
+const val BASE_URL = "http://192.168.1.7:3000/"
 
 val netModule = module {
 	fun provideCache(context: Context): Cache {
@@ -32,8 +33,8 @@ val netModule = module {
 
 		return OkHttpClient.Builder()
 				.addInterceptor(httpLoggingInterceptor)
-				.connectTimeout(15, TimeUnit.SECONDS)
-				.readTimeout(15, TimeUnit.SECONDS)
+				.connectTimeout(15, TimeUnit.MINUTES)
+				.readTimeout(15, TimeUnit.MINUTES)
 				.writeTimeout(3, TimeUnit.MINUTES)
 				.cache(cache)
 				.build()

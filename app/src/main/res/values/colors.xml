@@ -11,4 +11,5 @@
 	<color name="colorButtonTextLight">#E6FFFFFF</color>
 	<color name="colorInputHint">#7E93A2</color>
 	<color name="colorBackgroundDay">#E6FFFFFF</color>
+	<color name="colorDefaultError">#FF4135</color>
 </resources>
