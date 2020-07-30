@@ -3,12 +3,16 @@
 # Flow diagrams
 ### Launch Screen
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/launch_screen_diagram.png"></a>
+___
 ### SignIn Screen
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/sign_in_screen.png"></a>
+___
 ### SignUp Screen
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/sign_up_screen.png"></a>
+___
 ### Transactions Screen
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/transactions_screen.png"></a>
+___
 ### Dashboard Screen
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/dashboard_screen.png"></a>
 
