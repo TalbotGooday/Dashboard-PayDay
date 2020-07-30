@@ -1,6 +1,16 @@
 # Solution Architecture Diagram
-
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/solution_architecture_diagram.png"></a>
 # Flow diagrams
+### Launch Screen
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/launch_screen_diagram.png"></a>
+### SignIn Screen
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/sign_in_screen.png"></a>
+### SignUp Screen
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/sign_up_screen.png"></a>
+### Transactions Screen
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/transactions_screen.png"></a>
+### Dashboard Screen
+<img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/dashboard_screen.png"></a>
 
 # Answers to technical questions
 
