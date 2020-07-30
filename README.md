@@ -1,4 +1,4 @@
-#Before we start
+# Before we start
 Please, change the value of the variable `BASE_URL` in the `network/build.gradle` file. 
 
 Default is:
