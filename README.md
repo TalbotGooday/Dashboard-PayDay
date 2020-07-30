@@ -1,3 +1,10 @@
+#Before we start
+Please, change the value of the variable `BASE_URL` in the `network/build.gradle` file. 
+
+Default is:
+```groovy
+buildConfigField "String", "BASE_URL", "\"http://192.168.1.7:3000/\""
+```
 # Solution Architecture Diagram
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/solution_architecture_diagram.png"></a>
 # Flow diagrams

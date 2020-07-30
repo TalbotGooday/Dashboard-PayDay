@@ -2,6 +2,7 @@ package bank.payday.network.di
 
 import android.content.Context
 import bank.payday.network.Api
+import bank.payday.network.BuildConfig
 import bank.payday.network.repository.NetworkRepository
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -15,8 +16,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://192.168.1.7:3000/"
-
 val netModule = module {
 	fun provideCache(context: Context): Cache {
 		val cacheSize = 10 * 1024 * 1024
@@ -27,7 +26,11 @@ val netModule = module {
 			cache: Cache
 	): OkHttpClient {
 		val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
-			level = HttpLoggingInterceptor.Level.BODY
+			level = if (BuildConfig.DEBUG) {
+				HttpLoggingInterceptor.Level.BODY
+			} else {
+				HttpLoggingInterceptor.Level.NONE
+			}
 		}
 
 		return OkHttpClient.Builder()
@@ -47,7 +50,7 @@ val netModule = module {
 
 	fun provideRetrofit(factory: Gson, client: OkHttpClient): Api {
 		val retrofit = Retrofit.Builder()
-				.baseUrl(BASE_URL)
+				.baseUrl(BuildConfig.BASE_URL)
 				.addConverterFactory(GsonConverterFactory.create(factory))
 				.client(client)
 				.build()
