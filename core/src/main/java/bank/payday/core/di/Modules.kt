@@ -2,7 +2,7 @@ package bank.payday.core.di
 
 import bank.payday.core.repository.CoreRepository
 import bank.payday.network.di.netModule
-import bank.payday.network.repository.ApiRepository
+import bank.payday.network.repository.NetworkRepository
 import bank.payday.storage.di.storageModule
 import bank.payday.storage.repository.StorageRepository
 import org.koin.core.context.loadKoinModules
@@ -12,10 +12,10 @@ val coreModule = module {
 	loadKoinModules(listOf(netModule, storageModule))
 
 	fun provideCoreRepository(
-			apiRepository: ApiRepository,
+			networkRepository: NetworkRepository,
 			storageRepository: StorageRepository
 	): CoreRepository {
-		return CoreRepository(apiRepository, storageRepository)
+		return CoreRepository(networkRepository, storageRepository)
 	}
 
 	single { provideCoreRepository(get(), get()) }

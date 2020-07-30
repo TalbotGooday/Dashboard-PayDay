@@ -10,7 +10,11 @@ class StorageRepository(
 ) {
 	suspend fun saveCustomers(data: List<DCustomer>) = db.customersDao().addAll(data)
 
-	suspend fun getTransactions() = db.transactionsDao().getAll()
+	suspend fun getTransactions(): List<DTransaction> {
+		val customer = getCurrentCustomer() ?: return emptyList()
+
+		return db.transactionsDao().getAll(customer.id)
+	}
 
 	suspend fun getDebit(dateStart: String, dateEnd: String): List<DTransaction> {
 		val customer = getCurrentCustomer() ?: return emptyList()

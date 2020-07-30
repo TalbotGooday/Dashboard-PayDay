@@ -7,7 +7,7 @@ import bank.payday.network.models.transactions.NTransaction
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ApiRepository(
+class NetworkRepository(
 		private val api: Api
 ) {
 	suspend fun signIn(email: String, password: String): NCustomerData {

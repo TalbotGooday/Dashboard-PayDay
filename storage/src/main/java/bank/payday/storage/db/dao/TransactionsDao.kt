@@ -12,8 +12,8 @@ interface TransactionsDao {
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	suspend fun addAll(data: List<DTransaction>)
 
-	@Query("SELECT * FROM DTransaction ORDER BY date DESC")
-	suspend fun getAll(): List<DTransaction>
+	@Query("SELECT * FROM DTransaction WHERE accountId == :accountId ORDER BY date DESC")
+	suspend fun getAll(accountId: Int): List<DTransaction>
 
 	@Query("SELECT * FROM DTransaction WHERE amount >= 0.0 AND accountId == :accountId AND date BETWEEN :dateStart and :dateEnd ORDER BY date DESC")
 	suspend fun getDebit(accountId: Int, dateStart: String, dateEnd: String): List<DTransaction>

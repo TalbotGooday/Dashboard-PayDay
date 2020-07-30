@@ -37,11 +37,11 @@
 	<string name="error_required_field">Required field</string>
 	<string name="error_field_length">Length cannot be less than %d characters</string>
 	<string name="error_password_mismatch">Password mismatch</string>
+	<string name="error_date">Invalid date</string>
+	<string name="error_customer_not_exists">This user does not exist</string>
 
 	<string name="transactions_placeholder_text">Empty</string>
 	<string name="dashboard_placeholder_text">Empty</string>
-	<string name="error_date">Invalid date</string>
 	<string name="debit">Debit</string>
 	<string name="credit">Credit</string>
-	<string name="error_customer_not_exists">This user does not exist</string>
 </resources>

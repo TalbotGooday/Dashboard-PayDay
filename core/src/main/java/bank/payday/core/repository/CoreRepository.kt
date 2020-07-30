@@ -9,22 +9,22 @@ import bank.payday.core.mapper.transactions.TransactionsListUiMapper
 import bank.payday.core.models.customer.Customer
 import bank.payday.core.models.dashboard.DashboardModel
 import bank.payday.core.models.transactions.TransactionModel
-import bank.payday.network.repository.ApiRepository
+import bank.payday.network.repository.NetworkRepository
 import bank.payday.storage.repository.StorageRepository
 
 class CoreRepository(
-		private val apiRepository: ApiRepository,
+		private val networkRepository: NetworkRepository,
 		private val storageRepository: StorageRepository
 ) {
 	suspend fun loadInitialData() {
-		val data = apiRepository.loadCustomers()
+		val data = networkRepository.loadCustomers()
 		storageRepository.saveCustomers(DCustomersMapper().map(data))
 	}
 
 	suspend fun isCustomerSignedIn() = storageRepository.getCurrentCustomer() != null
 
 	suspend fun signIn(email: String, password: String): Customer {
-		val response = apiRepository.signIn(email, password)
+		val response = networkRepository.signIn(email, password)
 
 		storageRepository.saveCurrentCustomer(DUserMapper().map(response))
 
@@ -40,7 +40,7 @@ class CoreRepository(
 			phone: String,
 			birthTimestamp: Long
 	): Customer {
-		val response = apiRepository.signUp(
+		val response = networkRepository.signUp(
 				firstName,
 				lastName,
 				gender,
@@ -63,7 +63,7 @@ class CoreRepository(
 
 		return try {
 			if (refresh || dbResults.isEmpty()) {
-				val result = apiRepository.loadTransactions()
+				val result = networkRepository.loadTransactions()
 
 				storageRepository.saveTransactions(TransactionsListDbMapper().map(result))
 				mapper.map(storageRepository.getTransactions())

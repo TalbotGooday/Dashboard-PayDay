@@ -2,13 +2,12 @@ package bank.payday.network.di
 
 import android.content.Context
 import bank.payday.network.Api
-import bank.payday.network.repository.ApiRepository
+import bank.payday.network.repository.NetworkRepository
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.OkHttpClient
-import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -56,8 +55,8 @@ val netModule = module {
 		return retrofit.create(Api::class.java)
 	}
 
-	fun provideApiRepository(api: Api): ApiRepository {
-		return ApiRepository(api)
+	fun provideApiRepository(api: Api): NetworkRepository {
+		return NetworkRepository(api)
 	}
 
 	single { provideCache(androidContext()) }
