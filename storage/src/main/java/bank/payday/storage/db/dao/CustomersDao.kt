@@ -1,9 +1,6 @@
 package bank.payday.storage.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import bank.payday.storage.db.models.customers.DCustomer
 import bank.payday.storage.db.models.customers.DUser
 
@@ -28,4 +25,11 @@ interface CustomersDao {
 	@Query("SELECT * FROM DCustomer WHERE phone = :phone LIMIT 1")
 	suspend fun getCustomerByPhone(phone: String): DCustomer?
 
+	@Delete
+	suspend fun clearCurrentCustomer(user: DUser)
+
+	@Transaction
+	suspend fun logout() {
+		getCurrentLogged()?.let { clearCurrentCustomer(it) }
+	}
 }

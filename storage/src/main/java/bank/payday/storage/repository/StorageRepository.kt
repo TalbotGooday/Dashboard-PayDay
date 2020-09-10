@@ -34,6 +34,8 @@ class StorageRepository(
 
 	suspend fun getCurrentCustomer() = db.customersDao().getCurrentLogged()
 
+	suspend fun clearCurrentCustomer() = db.customersDao().logout()
+
 	suspend fun getCustomerByEmail(email: String) = db.customersDao().getCustomerByEmail(email)
 
 	suspend fun getCustomerByPhone(phone: String) = db.customersDao().getCustomerByPhone(phone)

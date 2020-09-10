@@ -11,6 +11,7 @@ import bank.payday.core.models.transactions.TransactionModel
 import bank.payday.extensions.visibleOrGone
 import bank.payday.extensions.visibleOrInvisible
 import bank.payday.ui.screen.dashboard.DashboardActivity
+import bank.payday.ui.screen.sign_in.SignInActivity
 import bank.payday.ui.screen.transactions.adapters.TransactionsAdapter
 import kotlinx.android.synthetic.main.activity_transactions.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,6 +35,7 @@ class TransactionsActivity : AppCompatActivity(R.layout.activity_transactions) {
 
 	private fun initViews() {
 		action_dashboard.setOnClickListener { openDashboardScreen() }
+		action_logout.setOnClickListener { logout() }
 
 		initTransactionsList()
 	}
@@ -46,8 +48,8 @@ class TransactionsActivity : AppCompatActivity(R.layout.activity_transactions) {
 		}
 	}
 
-	private fun openDashboardScreen() {
-		startActivity(Intent(this, DashboardActivity::class.java))
+	private fun logout() {
+		viewModel.logout()
 	}
 
 	private fun getTransactionsAdapter() = TransactionsAdapter()
@@ -74,6 +76,9 @@ class TransactionsActivity : AppCompatActivity(R.layout.activity_transactions) {
 				showPlaceholder(true, R.string.transactions_placeholder_text)
 				setWidgetsLoadingState(false)
 			}
+			TransactionsViewState.Logout -> {
+				openSignInScreen()
+			}
 		}
 	}
 
@@ -90,4 +95,13 @@ class TransactionsActivity : AppCompatActivity(R.layout.activity_transactions) {
 		progress.visibleOrInvisible(isLoading)
 	}
 
+	private fun openDashboardScreen() {
+		startActivity(Intent(this, DashboardActivity::class.java))
+	}
+
+	private fun openSignInScreen() {
+		startActivity(Intent(this, SignInActivity::class.java).apply {
+			flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+		})
+	}
 }

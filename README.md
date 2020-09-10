@@ -3,7 +3,7 @@ Please, change the value of the variable `BASE_URL` in the `network/build.gradle
 
 Default is:
 ```groovy
-buildConfigField "String", "BASE_URL", "\"http://192.168.1.7:3000/\""
+buildConfigField "String", "BASE_URL", "\"http://192.168.60.25:3000/\""
 ```
 # Solution Architecture Diagram
 <img src="https://github.com/TalbotGooday/Dashboard-PayDay/blob/master/images/solution_architecture_diagram.png"></a>
@@ -32,9 +32,9 @@ The coding test took me about 24 hours:
 * Business logic implementation: 10h;
 * Diagrams creation: 2h;
 * Readme creation: 2h.
-### 2. What would you add to your solution if you had more time? If you didn'tspend much time on the coding test then use this as an opportunity to explain what you would add.
-I would add better validation for fields like email, phone, more complete business logic for working with the API, which would include handling cases with no network. Perhaps I would add a logout function, I would have worked on the UX in more detail. It would also be interesting to create screens of detailed information on payments.
-Also, perhaps, I would create my own version of the test server, which is closer to real projects.
+### 2. What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
+I would add better validation for fields like email, phone, more complete business logic for working with the API, which would include handling cases with no network. Perhaps I would work on the UX in more detail. It would also be interesting to create screens of detailed information on payments.
+Also, perhaps, I would create my own version of the test server, which is closer to real projects, 'cause it is not safe to store all users in the application database.
 ### 3. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 I liked the last major update of the Kotlin (1.3.70) with the new function `scan()`.
 The `scan()` function is similar to `fold()` and carry out a binary operation to a list of values. But `fold()` returns only the final result, while `scan()` returns a list containing transitional results. For example:

@@ -7,4 +7,5 @@ sealed class TransactionsViewState : BaseViewState {
 	object Error : TransactionsViewState()
 	object Loaded : TransactionsViewState()
 	object LoadedEmpty : TransactionsViewState()
+	object Logout : TransactionsViewState()
 }

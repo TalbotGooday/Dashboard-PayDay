@@ -24,6 +24,13 @@
 			android:layout_gravity="end|center_vertical"
 			android:layout_marginEnd="@dimen/small_horizontal_margin"
 			app:srcCompat="@drawable/ic_pie_chart" />
+
+		<androidx.appcompat.widget.AppCompatImageButton
+			android:id="@+id/action_logout"
+			style="@style/ToolbarImageButton"
+			android:layout_gravity="start|center_vertical"
+			android:layout_marginStart="@dimen/small_horizontal_margin"
+			app:srcCompat="@drawable/ic_exit_to_app" />
 	</FrameLayout>
 
 	<FrameLayout

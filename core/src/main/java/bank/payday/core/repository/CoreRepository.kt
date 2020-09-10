@@ -90,4 +90,8 @@ class CoreRepository(
 
 		return DashboardListUiMapper(withHeaders).map(dbResults)
 	}
+
+	suspend fun logout() {
+		storageRepository.clearCurrentCustomer()
+	}
 }

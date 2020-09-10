@@ -35,4 +35,14 @@ class TransactionsViewModel(
 			}
 		}
 	}
+
+	fun logout() {
+		launch {
+			try {
+				coreRepository.logout()
+			} finally {
+				_state.postValue(TransactionsViewState.Logout)
+			}
+		}
+	}
 }

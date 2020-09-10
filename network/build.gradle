@@ -15,7 +15,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
-        buildConfigField "String", "BASE_URL", "\"http://192.168.1.7:3000/\""
+        buildConfigField "String", "BASE_URL", "\"http://192.168.60.25:3000/\""
     }
 
     buildTypes {
@@ -32,9 +32,9 @@ dependencies {
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
 
     // Koin
-    implementation("org.koin:koin-android:2.1.5")
+    implementation("org.koin:koin-android:2.1.6")
 }
